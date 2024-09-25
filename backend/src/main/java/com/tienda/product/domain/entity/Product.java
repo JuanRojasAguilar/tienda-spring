@@ -31,4 +31,11 @@ public class Product {
 
     @Column(precision = 16, scale = 2)
     private Double price;
+
+    @Column
+    private Integer stock;
+
+    @Column
+    private Short state;
+
 }
