@@ -1,4 +1,4 @@
-package com.tienda.category.service;
+package com.tienda.category.application.service;
 
 import java.util.Optional;
 import java.util.Set;

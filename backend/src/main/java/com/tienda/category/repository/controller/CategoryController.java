@@ -1,4 +1,4 @@
-package com.tienda.category.controller;
+package com.tienda.category.repository.controller;
 
 import java.util.Set;
 
@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.tienda.category.application.service.CategoryService;
 import com.tienda.category.domain.entity.Category;
-import com.tienda.category.service.CategoryService;
 
 
 @RestController

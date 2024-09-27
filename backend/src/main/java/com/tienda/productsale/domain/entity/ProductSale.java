@@ -11,14 +11,18 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 @Data
 @Entity
 @Table(name="products_sales")
+@EqualsAndHashCode(onlyExplicitlyIncluded=true)
 public class ProductSale {
+
 
   @EmbeddedId
   @Column(name = "id_product_sale")
+  @EqualsAndHashCode.Include
   private ProductSalePk idProductSale;
 
   @Column 

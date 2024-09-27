@@ -31,11 +31,11 @@ public class Product {
     @Column(nullable = false, unique = true, length = 150)
     private String barcode;
 
-    @Column(precision = 16, scale = 2)
+    @Column(precision = 16, scale = 2, nullable=false)
     private Double price;
 
     @Column
-    private Integer stock;
+    private Integer stock = 0;
 
     @Column
     private Short state;
