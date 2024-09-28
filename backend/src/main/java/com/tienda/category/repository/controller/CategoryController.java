@@ -21,5 +21,4 @@ public class CategoryController {
     public Set<Category> findAll() {
         return service.findAll();
     }
-    
 }

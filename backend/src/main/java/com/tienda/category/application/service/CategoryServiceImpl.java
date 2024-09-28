@@ -21,7 +21,7 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Transactional(readOnly=true)
     @Override
-    public Optional<Category> findById(Integer id) {
+    public Optional<Category> findById(Long id) {
         return repository.findById(id);
     }
 
@@ -32,7 +32,7 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public Category update(Integer id, Category category) {
+    public Category update(Long id, Category category) {
         Optional<Category> dbCategory = repository.findById(id);
         if (dbCategory.isPresent()) {
             Category newCategory = dbCategory.get();
@@ -44,7 +44,7 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public Optional<Category> delete(Integer id) {
+    public Optional<Category> delete(Long id) {
         Optional<Category> category = repository.findById(id);
         category.ifPresent(target -> {
             repository.delete(target);

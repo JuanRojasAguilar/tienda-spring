@@ -7,15 +7,18 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 @Data
 @Entity
 @Table(name="customers")
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Customer {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name="id_customer")
-  private Integer idCustomer;
+  @EqualsAndHashCode.Include
+  private Long idCustomer;
 
   @Column(name="first_name", nullable=false, length = 50)
   private String firstName;
