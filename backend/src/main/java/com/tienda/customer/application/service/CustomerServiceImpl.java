@@ -33,7 +33,17 @@ public class CustomerServiceImpl implements CustomerService {
 
 	@Override
 	public Customer update(Long id, Customer customer) {
-		throw new UnsupportedOperationException("Unimplemented method 'update'");
+    Optional<Customer> customerInstance = repository.findById(id);
+    if (customerInstance.isPresent()) {
+      Customer updatedCustomer = customerInstance.get();
+      updatedCustomer.setFirstName(customer.getFirstName());
+      updatedCustomer.setLastName(customer.getLastName());
+      updatedCustomer.setAddress(customer.getAddress());
+      updatedCustomer.setEmail(customer.getEmail());
+      updatedCustomer.setCellphoneNumber(customer.getCellphoneNumber());
+      return repository.save(updatedCustomer);
+    }
+    return null;
 	}
 
 	@Override
@@ -45,4 +55,5 @@ public class CustomerServiceImpl implements CustomerService {
     return customer;
 	}
   
+
 }
