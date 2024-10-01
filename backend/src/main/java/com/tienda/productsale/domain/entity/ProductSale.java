@@ -1,5 +1,7 @@
 package com.tienda.productsale.domain.entity;
 
+import java.math.BigDecimal;
+
 import com.tienda.product.domain.entity.Product;
 import com.tienda.sale.domain.entity.Sale;
 
@@ -29,7 +31,7 @@ public class ProductSale {
   private Integer quantity;
 
   @Column(precision = 10, scale = 2)
-  private Double total;
+  private BigDecimal total;
 
   @ManyToOne
   @JoinColumn(name="id_product", insertable=false, updatable=false)

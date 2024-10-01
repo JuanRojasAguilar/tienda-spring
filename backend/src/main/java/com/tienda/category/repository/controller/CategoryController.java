@@ -1,6 +1,6 @@
 package com.tienda.category.repository.controller;
 
-import java.util.Set;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,7 +18,7 @@ public class CategoryController {
     private CategoryService service;
 
     @GetMapping
-    public Set<Category> findAll() {
+    public List<Category> findAll() {
         return service.findAll();
     }
 }

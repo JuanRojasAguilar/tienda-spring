@@ -94,7 +94,6 @@ const CreateProduct = () => {
         <div className={Styles.fieldContainer}>
           <Input
             onChange={(e) => setName(e.target.value)}
-            name="name"
             variant="ghost"
             isRequired
             label="Nombre"
@@ -106,7 +105,6 @@ const CreateProduct = () => {
 
           <Input
             onChange={(e) => setPrice(e.target.value)}
-            name="price"
             isRequired
             label="Precio"
             variant="ghost"
@@ -125,7 +123,6 @@ const CreateProduct = () => {
             className={Styles.Input}
             onChange={(e) => setStock(e.target.value)}
             label="Existencias"
-            name="stock"
             placeholder="0"
             variant="ghost"
             type="number"
@@ -143,6 +140,7 @@ const CreateProduct = () => {
           >
             Registrar
           </Button>
+
           <Button
             className={`${Styles.button}`}
             color="danger"

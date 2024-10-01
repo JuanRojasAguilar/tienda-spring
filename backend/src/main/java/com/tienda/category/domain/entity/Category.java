@@ -1,6 +1,6 @@
 package com.tienda.category.domain.entity;
 
-import java.util.Set;
+import java.util.List;
 
 import com.tienda.product.domain.entity.Product;
 
@@ -32,5 +32,5 @@ public class Category {
     private Short state;
 
     @OneToMany
-    private Set<Product> products;
+    private List<Product> products;
 }

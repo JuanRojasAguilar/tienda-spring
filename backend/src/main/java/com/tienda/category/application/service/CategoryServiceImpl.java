@@ -1,22 +1,24 @@
 package com.tienda.category.application.service;
 
+import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.tienda.category.domain.entity.Category;
 import com.tienda.category.repository.CategoryRepository;
 
+@Service
 public class CategoryServiceImpl implements CategoryService {
     @Autowired
     private CategoryRepository repository;
 
     @Transactional(readOnly=true)
     @Override
-    public Set<Category> findAll() {
-        return (Set<Category>) repository.findAll();
+    public List<Category> findAll() {
+        return (List<Category>) repository.findAll();
     }
 
     @Transactional(readOnly=true)

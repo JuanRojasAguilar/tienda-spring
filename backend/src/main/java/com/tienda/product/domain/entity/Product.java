@@ -1,6 +1,9 @@
 package com.tienda.product.domain.entity;
 
-import java.util.Locale.Category;
+
+import java.math.BigDecimal;
+
+import com.tienda.category.domain.entity.Category;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -32,7 +35,7 @@ public class Product {
     private String barcode;
 
     @Column(precision = 16, scale = 2, nullable=false)
-    private Double price;
+    private BigDecimal price;
 
     @Column
     private Integer stock = 0;

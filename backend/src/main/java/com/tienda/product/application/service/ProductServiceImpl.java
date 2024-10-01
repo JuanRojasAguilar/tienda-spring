@@ -4,11 +4,13 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.tienda.product.domain.entity.Product;
 import com.tienda.product.repository.ProductRepository;
 
+@Service
 public class ProductServiceImpl implements ProductService {
   @Autowired
   private ProductRepository repository;
