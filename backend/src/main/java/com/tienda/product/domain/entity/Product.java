@@ -2,16 +2,20 @@ package com.tienda.product.domain.entity;
 
 
 import java.math.BigDecimal;
+import java.util.List;
 
 import com.tienda.category.domain.entity.Category;
+import com.tienda.productsale.domain.entity.ProductSale;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.Data;
 
@@ -22,9 +26,9 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_product")
-    private Integer idProduct;
+    private Long idProduct;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_category")
     private Category category;
 
@@ -43,4 +47,6 @@ public class Product {
     @Column
     private Short state;
 
+    @OneToMany(mappedBy = "product", fetch=FetchType.LAZY)
+    private List<ProductSale> productProductsSale;
 }

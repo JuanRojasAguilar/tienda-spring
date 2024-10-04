@@ -8,6 +8,7 @@ import com.tienda.product.domain.entity.Product;
 public interface ProductService {
   List<Product> findAll();
   Optional<Product> findById(Long id);
+  Product add(Product product);
   Product update(Long id, Product product);
   Product delete(Long id);
 }

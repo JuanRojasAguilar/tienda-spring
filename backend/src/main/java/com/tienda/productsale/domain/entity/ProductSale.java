@@ -2,6 +2,7 @@ package com.tienda.productsale.domain.entity;
 
 import java.math.BigDecimal;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.tienda.product.domain.entity.Product;
 import com.tienda.sale.domain.entity.Sale;
 
@@ -19,9 +20,8 @@ import lombok.EqualsAndHashCode;
 @Entity
 @Table(name="products_sales")
 @EqualsAndHashCode(onlyExplicitlyIncluded=true)
+@JsonIgnoreProperties({"product", "sale"})
 public class ProductSale {
-
-
   @EmbeddedId
   @Column(name = "id_product_sale")
   @EqualsAndHashCode.Include

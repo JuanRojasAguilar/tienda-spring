@@ -1,7 +1,9 @@
 package com.tienda.category.application.service;
 
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,8 +19,9 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Transactional(readOnly=true)
     @Override
-    public List<Category> findAll() {
-        return (List<Category>) repository.findAll();
+    public Set<Category> findAll() {
+        Set<Category> categories = new LinkedHashSet<>((List<Category>) repository.findAll());
+        return categories;
     }
 
     @Transactional(readOnly=true)
@@ -38,8 +41,10 @@ public class CategoryServiceImpl implements CategoryService {
         Optional<Category> dbCategory = repository.findById(id);
         if (dbCategory.isPresent()) {
             Category newCategory = dbCategory.get();
-            newCategory.setDescription(category.getDescription());
-            newCategory.setState(category.getState());
+            
+            if (category.getDescription() != null) newCategory.setDescription(category.getDescription());
+            if (category.getState() != null) newCategory.setState(category.getState());
+           
             return repository.save(newCategory);
         }
         return null;

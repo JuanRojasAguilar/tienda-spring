@@ -21,6 +21,11 @@ public class ProductServiceImpl implements ProductService {
     return (List<Product>) repository.findAll();
 	}
 
+  @Override
+  public Product add(Product product) {
+    return repository.save(product);
+  }
+
   @Transactional(readOnly = true)
 	@Override
 	public Optional<Product> findById(Long id) {
